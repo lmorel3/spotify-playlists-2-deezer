@@ -8,15 +8,14 @@ Upload your Spotify Playlists to Deezer with this Python3 application.
 > pip install urwid
 
 ## How To Use
-1. Use caseychu's [great playlist backup script](https://github.com/caseychu/spotify-backup) and export to JSON
-   > python spotify-backup.py --format=json myplaylist.txt
+1. Use caseychu's [great playlist backup script](https://github.com/caseychu/spotify-backup) and export to JSON. It'll ask you to allow the application.
+   > python spotify-backup.py --format=json myplaylist.json
 2. [Register a new Deezer App](https://developers.deezer.com/) (they don't support the secret-less implicit grant OAuth as of now) **Be sure to leave redirect URL and domain as in the picture**
 <img src="https://i.imgur.com/91cJaSa.png" width="600" />
 3. Change the settings in spotify-restore.py to your APPID and Secret from the just registered Deezer App
 <img src="https://i.imgur.com/qw0EWBJ.png" width="300" />
 4. Launch the application
-
-   > python spotify-restore.py myplaylist.txt
+   > python spotify-restore.py myplaylist.json
    <img src="https://i.imgur.com/jh1pDIo.png" width="600" />
 5. Select or Deselect playlists, if needed. TAB switches focus to buttons on bottom. Space or Enter change selection
 <img src="https://i.imgur.com/bpvpuZc.png" width="600" />

@@ -11,8 +11,8 @@ import urllib.request
 import webbrowser
 
 ## CHANGE THESE VALUES
-APPID='12345'
-SECRET='yoursecretsecret'
+APPID=''
+SECRET=''
 ## DO NOT CHANGE ANYTHING BELOW HERE
 
 PORT=23412
@@ -262,7 +262,7 @@ def get_deezer_playlists(next):
 	return 1 if okay, -1 if not
 '''
 def add_tracks(playlistid, tracklist):
-	strlist = ','.join(str(e) for e in tracklist)
+	strlist = ','.join(str(e) for e in list(set(tracklist)))
 	params = urllib.parse.urlencode({'songs':strlist}).encode('UTF-8')
 	url = 'https://api.deezer.com/playlist/'+str(playlistid)+'/tracks?access_token='+token
 	f = urllib.request.urlopen(url, data=params)
@@ -270,6 +270,7 @@ def add_tracks(playlistid, tracklist):
 	if fstr == "true":
 		return 1
 	else:
+		print(fstr)
 		return -1
 
 '''
